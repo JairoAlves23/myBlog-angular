@@ -1,0 +1,43 @@
+<form class="container" [formGroup]="form" style="padding-top: 10px;">
+  <div class="content">
+    <mat-form-field>
+      <mat-label>Titulo</mat-label>
+      <input
+        matInput
+        placeholder="titulo"
+        formControlName="titulo"
+        name="titulo"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Autor</mat-label>
+      <input
+        matInput
+        placeholder="Nome"
+        formControlName="autor"
+        name="autor"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Leave a comment</mat-label>
+      <textarea
+        matInput
+        formControlName="texto"
+        placeholder="Ex. It makes me feel..."
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="cButton">
+    <button
+      type="sumit"
+      mat-raised-button
+      color="primary"
+      (click)="savePost()" 
+    >
+      Salvar
+    </button>
+  </div>
+</form>
