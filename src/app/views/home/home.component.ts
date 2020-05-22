@@ -2,6 +2,7 @@ import { PostService } from "./../post/post.service";
 import { Post } from "../post/post.model";
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
+import { HeaderService } from 'src/app/components/template/header/header.service';
 
 @Component({
   selector: "app-home",
@@ -14,8 +15,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private postService: PostService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private headerService: HeaderService
+  ) {
+    headerService.headerData = {
+      title: "Home",
+      icon: "edit",
+      routeUrl: "/posts",
+      color:"primary"
+    };
+  }
 
   ngOnInit(): void {
     this.postService.read().subscribe((posts) => {

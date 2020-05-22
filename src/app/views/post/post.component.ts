@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Post } from "./post.model";
+import { HeaderService } from "src/app/components/template/header/header.service";
 
 @Component({
   selector: "app-post",
@@ -17,13 +18,22 @@ export class PostComponent implements OnInit {
     private router: Router,
     private postService: PostService,
     private fb: FormBuilder,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private headerService: HeaderService
+  ) {
+    headerService.headerData = {
+      title: "Post",
+      icon: "storefront",
+      routeUrl: "/",
+      color:"accent"
+    };
+  }
 
+  
   form: FormGroup = this.fb.group({
     titulo: [""],
     autor: [""],
-    texto: [""],
+    texto: [""]
   });
 
   ngOnInit(): void {
@@ -36,16 +46,18 @@ export class PostComponent implements OnInit {
           id: [id],
           titulo: [titulo],
           autor: [autor],
-          texto: [texto],
+          texto: [texto]
         });
       });
     }
   }
 
   savePost(): void {
-    this.postService.save(this.form.value).subscribe(() => {
+
+   this.postService.save(this.form.value).subscribe(() => {
       this.postService.showMessage("Post Criado");
       this.router.navigate(["/"]);
-    });
+    }); 
   }
+
 }

@@ -1,5 +1,9 @@
 .header {
   display: flex;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 99;
   justify-content: space-between;
   align-items: center;
   height: 120px;
@@ -18,7 +22,7 @@
   margin-top: 5px;
 }
 
-.header .title-group { 
+.header .title-group {
   padding-left: 25px;
   text-decoration: none;
 }

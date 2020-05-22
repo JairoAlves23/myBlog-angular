@@ -1,4 +1,5 @@
-<form class="container" [formGroup]="form" style="padding-top: 10px;">
+<div class="containerg">
+<form class="container" [formGroup]="form">
   <div class="content">
     <mat-form-field>
       <mat-label>Titulo</mat-label>
@@ -7,6 +8,7 @@
         placeholder="titulo"
         formControlName="titulo"
         name="titulo"
+        maxlength="45"
       />
     </mat-form-field>
 
@@ -20,15 +22,22 @@
       />
     </mat-form-field>
 
-    <mat-form-field>
+    <!-- <mat-form-field>
       <mat-label>Leave a comment</mat-label>
       <textarea
         matInput
         formControlName="texto"
         placeholder="Ex. It makes me feel..."
       ></textarea>
-    </mat-form-field>
+    </mat-form-field> -->
+
+    <quill-editor 
+    [formControl]="form.controls['texto']"
+    [styles]="{height: '200px'}">
+   </quill-editor> 
+        
   </div>
+
 
   <div class="cButton">
     <button
@@ -41,3 +50,4 @@
     </button>
   </div>
 </form>
+</div>

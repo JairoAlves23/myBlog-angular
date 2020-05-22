@@ -1,20 +1,13 @@
 <mat-toolbar class="header mat-elevation-z4">
-  <span>Blog Post</span>
+  <span>{{ title }}</span>
   <span class="title-group">
-    <a [routerLink]="['/']">
-      <i class="material-icons">
-        edit
-      </i>
-      Novo Post
-    </a>
+    <button
+      routerLink="{{ routeUrl }}"
+      mat-fab
+      color="{{ color }}"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>{{ icon }}</mat-icon>
+    </button>
   </span>
-  <button
-    [routerLink]="['/posts']"
-    mat-fab
-    color="primary"
-    aria-label="Example icon button with a delete icon"
-  >
-    <mat-icon>edit</mat-icon>
-  </button>
-  <span>Blog Post</span>
 </mat-toolbar>

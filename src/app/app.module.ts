@@ -12,6 +12,7 @@ import { FooterComponent } from "./components/template/footer/footer.component";
 import { MaterialModule } from "./material.componet";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill'
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule, 
+    HttpClientModule,  
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
